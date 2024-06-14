@@ -33,7 +33,7 @@ public class StudentController {
 			model.addAttribute("stdNameError", "Please Enter Student Name");
 			isError = true;
 		}
-		else if (Validators.isAlpha(alphaRegEx)){
+		else if (Validators.isAlpha(stdbean.getStdName())){
 			model.addAttribute("stdNameError", "Please Enter Valid Student Name");
 			isError = true;
 		}
