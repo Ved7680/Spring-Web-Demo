@@ -8,10 +8,25 @@
 </head>
 <body>
 	<form action="saveproduct" method="post">
-		Product Name: <input type="text" name="productName"> <br><br>
-		Category: <input type="text" name="category"> <br><br>
-		Qty: <input type="text" name="qty"> <br><br>
-		Price: <input type="text" name="price"> <br><br>
+		Product Name: <input type="text" name="productName" value="${productDetails.productName}"> 
+		<span style="color:red">${productNameError}</span>
+		
+		<br><br>
+		
+		Category: <input type="text" name="category" value="${productDetails.category}">
+		<span style="color:red">${categoryError}</span>
+		
+		<br><br>
+		
+		Qty: <input type="text" name="qty" value="${productDetails.qty}">
+		<span style="color:red">${qtyError}</span>
+		
+		<br><br>
+		
+		Price: <input type="text" name="price" value="${productDetails.price}">
+		<span style="color:red">${priceError}</span>
+		
+		<br><br>
 		
 		<input type="submit" value="Add Product">
 	</form>

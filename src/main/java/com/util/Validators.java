@@ -25,5 +25,10 @@ public class Validators {
 		return data.matches(alphaRegEx);
 	} // end of isAlpha()
 	
+	public static boolean isNumeric(String data) {
+		String numRegEx = "[0-9]+";
+		return data.matches(numRegEx);
+	}
+	
 	
 }
