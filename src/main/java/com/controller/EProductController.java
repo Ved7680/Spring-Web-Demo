@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.EProductBean;
 import com.dao.EProductDao;
@@ -59,16 +60,17 @@ public class EProductController {
 		if ( Validators.isBlank( Float.toString(productBean.getPrice()) ) ){
 			model.addAttribute("priceError", "Please Enter Product Price");
 			isError = true;
-		}else if ( Validators.isAlpha(Float.toString(productBean.getPrice())) == false ) {
-			model.addAttribute("priceError", "Please Enter Product Valid Price");
-			isError = true;
 		}
+//		else if ( Validators.isAlpha(Float.toString(productBean.getPrice())) == false ) {
+//			model.addAttribute("priceError", "Please Enter Product Valid Price");
+//			isError = true;
+//		}
 		
 		model.addAttribute("productDetails", productBean);
 		
 		if (isError == false) {
 			productDao.addProduct(productBean);
-			return "Welcome";
+			return "redirect:/products"; // redirect: --> using it we will be able to redirect to a url. Otherwise, it will only accept jsp file.
 		}
 		else {
 			return "E_NewProduct";
@@ -82,5 +84,13 @@ public class EProductController {
 		model.addAttribute("product_list", product_list);
 		
 		return "EcomListProducts";
+	}
+	
+	@GetMapping("/deleteproduct")
+	public String deleteProduct(@RequestParam("productId") Integer productId) {
+		System.out.println(productId);
+//		productDao.deleteProduct(productId);
+		
+		return "redirect:/products";
 	}
 }

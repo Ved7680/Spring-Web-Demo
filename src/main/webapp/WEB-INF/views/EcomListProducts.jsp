@@ -19,15 +19,18 @@
 		<tr>
 			<th>Product Id</th>
 			<th>Product Name</th>
+			<th>Action</th>
 		</tr>
 		 <%
 		 for (EProductBean p: product_list){
 			 out.print("<tr>");
-			 out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td>");
+			 out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td><td> <a href='deleteproduct?productId="+p.getProductId()+"'>Delete</a>");
 			 out.print("</tr>");
 		 }
 		 %>
 		
 	</table>
+	<br><br>
+	Link to add new Product: <a href="/newproduct">New Product</a>
 </body>
 </html>
