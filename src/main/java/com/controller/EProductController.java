@@ -89,7 +89,20 @@ public class EProductController {
 	@GetMapping("/deleteproduct")
 	public String deleteProduct(@RequestParam("productId") Integer productId) {
 		System.out.println(productId);
-//		productDao.deleteProduct(productId);
+		productDao.deleteProduct(productId);
+		
+		return "redirect:/products";
+	}
+	
+	@GetMapping("/deleteproduct_name_submit")
+	public String deleteProductName() {
+//		productDao.deleteProduct(productName);
+		return "EDelete_Product_Name";
+	}
+	
+	@GetMapping("/deleteproduct_name")
+	public String deleteProduct(@RequestParam("productName") String productName) {
+		productDao.deleteProduct(productName);
 		
 		return "redirect:/products";
 	}

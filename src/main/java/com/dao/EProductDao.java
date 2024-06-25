@@ -28,4 +28,8 @@ public class EProductDao {
 	public void deleteProduct(Integer productId) {
 		stmt.update("delete from products where productId = ?",productId);
 	}
+	
+	public void deleteProduct(String productName) {
+		stmt.update("delete from products where productName = ?",productName);
+	}
 }

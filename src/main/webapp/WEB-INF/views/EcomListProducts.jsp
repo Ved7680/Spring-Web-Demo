@@ -31,6 +31,7 @@
 		
 	</table>
 	<br><br>
-	Link to add new Product: <a href="/newproduct">New Product</a>
+	Link to add new Product: <a href="/newproduct">New Product</a> <br><br>
+	Link to delete Product with name: <a href="deleteproduct_name_submit">Delete Product with Name</a>
 </body>
 </html>
