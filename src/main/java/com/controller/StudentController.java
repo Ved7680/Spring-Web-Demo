@@ -26,7 +26,7 @@ public class StudentController {
 		System.out.println("Drinks: "+stdbean.getDrink());
 		
 		boolean isError = false;
-		String alphaRegEx = "[a-z A-Z]+";
+//		String alphaRegEx = "[a-z A-Z]+";
 		
 		if(Validators.isBlank(stdbean.getStdName()))
 		{

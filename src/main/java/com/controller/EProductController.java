@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.EProductBean;
 import com.dao.EProductDao;
@@ -25,7 +26,7 @@ public class EProductController {
 	}
 	
 	@PostMapping("/saveproduct")
-	public String saveProduct(EProductBean productBean, Model model) {
+	public String saveProduct(EProductBean productBean, @RequestParam("masterImage") MultipartFile masterImage, Model model) {
 		
 		boolean isError=false;
 		
@@ -69,6 +70,7 @@ public class EProductController {
 		model.addAttribute("productDetails", productBean);
 		
 		if (isError == false) {
+			System.out.println(masterImage.getOriginalFilename());
 			productDao.addProduct(productBean);
 			return "redirect:/products"; // redirect: --> using it we will be able to redirect to a url. Otherwise, it will only accept jsp file.
 		}
@@ -105,5 +107,13 @@ public class EProductController {
 		productDao.deleteProduct(productName);
 		
 		return "redirect:/products";
+	}
+	
+	@GetMapping("/viewproduct")
+	public String viewProduct(@RequestParam("productId") Integer productId, Model model) {
+		EProductBean productBean = productDao.getProductById(productId);
+		model.addAttribute("product", productBean);
+		
+		return "ViewProduct";
 	}
 }

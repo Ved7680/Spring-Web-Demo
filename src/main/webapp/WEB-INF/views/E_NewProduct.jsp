@@ -7,7 +7,7 @@
 <title>New Product</title>
 </head>
 <body>
-	<form action="saveproduct" method="post">
+	<form action="saveproduct" method="post" enctype="multipart/form-data">
 		Product Name: <input type="text" name="productName" value="${productDetails.productName}"> 
 		<span style="color:red">${productNameError}</span>
 		
@@ -25,6 +25,10 @@
 		
 		Price: <input type="text" name="price" value="${productDetails.price}">
 		<span style="color:red">${priceError}</span>
+		
+		<br><br>
+		
+		MasterImage : <input type="file" name="masterImage"/>
 		
 		<br><br>
 		
