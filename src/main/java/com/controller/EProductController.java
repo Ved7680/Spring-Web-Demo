@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.EProductBean;
 import com.dao.EProductDao;
+import com.service.EFileUploadService;
 import com.util.Validators;
 
 @Controller
@@ -19,6 +20,9 @@ public class EProductController {
 	
 	@Autowired
 	EProductDao productDao;
+	
+	@Autowired
+	EFileUploadService fileUploadService;
 	
 	@GetMapping("/newproduct")
 	public String newProduct() {
@@ -70,7 +74,8 @@ public class EProductController {
 		model.addAttribute("productDetails", productBean);
 		
 		if (isError == false) {
-			System.out.println(masterImage.getOriginalFilename());
+//			System.out.println(masterImage.getOriginalFilename());
+			fileUploadService.uploadProductImage(masterImage);
 			productDao.addProduct(productBean);
 			return "redirect:/products"; // redirect: --> using it we will be able to redirect to a url. Otherwise, it will only accept jsp file.
 		}
