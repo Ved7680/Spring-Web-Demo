@@ -9,7 +9,7 @@
 <body>
 	<h2>Welcome to the Signup Page</h2>
 	
-	<form action="esignup" method="post">
+	<form action="esignup" method="post" enctype="multipart/form-data">
 		First Name: <input type="text" name="firstName" value="${user_details.firstName}"> 
 		<span style="color:red">${firstNameError}</span>
 		
@@ -22,6 +22,10 @@
 		
 		Password: <input type="password" name="password">
 		<span style="color:red">${passwordError}</span>
+		
+		<br><br>
+		
+		Profile Picture: <input type="file" name="profilePic">
 		
 		<br><br>
 		

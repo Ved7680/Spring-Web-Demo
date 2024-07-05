@@ -13,8 +13,8 @@ public class EUserDao {
 	JdbcTemplate stmt;
 	
 	public void insertUser(EcomUserBean userbean) {
-		stmt.update("Insert into users(firstName, email, password) values (?,?,?)",userbean.getFirstName(), 
-						userbean.getEmail(), userbean.getPassword());
+		stmt.update("Insert into users(firstName, email, password, profilePic) values (?,?,?,?)",userbean.getFirstName(), 
+						userbean.getEmail(), userbean.getPassword(), userbean.getProfilePicPath());
 	}
 	
 }

@@ -22,8 +22,24 @@ public class EFileUploadService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
+	}
+	
+	public void uploadUserImage(MultipartFile masterImage, String email) {
 		
+		String path = "C:\\Users\\vedbo\\Documents\\workspace-spring-tool-suite-4-4.22.1.RELEASE\\Spring-Web-Demo\\src\\main\\resources\\images\\profilepic";
+		File dir = new File(path,email);
+		dir.mkdir();
 		
-		
+		try {
+			byte image_array[] = masterImage.getBytes();
+			
+			File file = new File(dir, masterImage.getOriginalFilename());
+			FileUtils.writeByteArrayToFile(file, image_array);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 	}
 }

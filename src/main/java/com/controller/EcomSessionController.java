@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bean.EcomUserBean;
 import com.dao.EUserDao;
+import com.service.EFileUploadService;
 import com.util.Validators;
 
 @Controller
@@ -15,6 +16,9 @@ public class EcomSessionController {
 
 	@Autowired
 	EUserDao userDao;
+	
+	@Autowired
+	EFileUploadService fileUploadService;
 	
 	
 	@GetMapping("/esignup")
@@ -68,6 +72,11 @@ public class EcomSessionController {
 			return "Ecomsignup";
 		}
 		else {
+			
+			fileUploadService.uploadUserImage(userbean.getProfilePic(), userbean.getEmail());
+			
+			userbean.setProfilePicPath("images//profilepic//"+userbean.getEmail()+"//"+userbean.getProfilePic().getOriginalFilename());
+			
 			userDao.insertUser(userbean);
 			return "Ecomlogin";
 		}
