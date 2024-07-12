@@ -10,8 +10,10 @@
 </head>
 <body>
 
+	<a href="ehome">Home Page</a> <br><br>
+
 	<%
-	List<EProductBean> product_list = (List<EProductBean>)request.getAttribute("product_list");
+	List<EProductBean> product_list = (List<EProductBean>) request.getAttribute("product_list");
 	%>
 	<h2>Products List</h2>
 	
@@ -32,6 +34,6 @@
 	</table>
 	<br><br>
 	Link to add new Product: <a href="/newproduct">New Product</a> <br><br>
-	Link to delete Product with name: <a href="deleteproduct_name_submit">Delete Product with Name</a>
+	
 </body>
 </html>

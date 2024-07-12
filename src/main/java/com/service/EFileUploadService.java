@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class EFileUploadService {
 	public void uploadProductImage(MultipartFile masterImage) {
 		
-		String path = "C:\\Users\\vedbo\\Documents\\workspace-spring-tool-suite-4-4.22.1.RELEASE\\Spring-Web-Demo\\src\\main\\resources\\images\\products";
+		String path = "C:\\Users\\vedbo\\Documents\\workspace-spring-tool-suite-4-4.22.1.RELEASE\\Spring-Web-Demo\\src\\main\\webapp\\images\\products";
 		
 		try {
 			byte image_array[] = masterImage.getBytes();
@@ -27,7 +27,7 @@ public class EFileUploadService {
 	
 	public void uploadUserImage(MultipartFile masterImage, String email) {
 		
-		String path = "C:\\Users\\vedbo\\Documents\\workspace-spring-tool-suite-4-4.22.1.RELEASE\\Spring-Web-Demo\\src\\main\\resources\\images\\profilepic";
+		String path = "C:\\Users\\vedbo\\Documents\\workspace-spring-tool-suite-4-4.22.1.RELEASE\\Spring-Web-Demo\\src\\main\\webapp\\images\\profilepic";
 		File dir = new File(path,email);
 		dir.mkdir();
 		

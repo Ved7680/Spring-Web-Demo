@@ -11,6 +11,8 @@ import com.dao.EUserDao;
 import com.service.EFileUploadService;
 import com.util.Validators;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class EcomSessionController {
 
@@ -20,15 +22,34 @@ public class EcomSessionController {
 	@Autowired
 	EFileUploadService fileUploadService;
 	
-	
 	@GetMapping("/esignup")
 	public String esignup() {
 		return "Ecomsignup";
 	}
 	
-	@GetMapping("/elogin")
+	@GetMapping(value = {"/elogin","/"})
 	public String elogin() {
 		return "Ecomlogin";
+	}
+	
+	@PostMapping("/elogin")
+	public String eLogin(EcomUserBean userbean, Model model, HttpSession session) {
+		System.out.println("line 35 =>"+userbean.getEmail());
+		System.out.println("line 35 =>"+userbean.getPassword());
+		
+		
+		EcomUserBean dbUser = userDao.authenticate(userbean.getEmail(), userbean.getPassword());
+		if (dbUser == null) {
+			model.addAttribute("loginerror", "Invalid Credentials");
+			return "Ecomlogin";
+		}
+		else {
+			session.setAttribute("user", dbUser);
+			model.addAttribute("firstName", dbUser.getFirstName());
+			System.out.println("line 49 =>"+dbUser.getProfilePicPath());
+			model.addAttribute("profilePicPath", dbUser.getProfilePicPath());	
+			return "EComHome";
+		}
 	}
 	
 	@PostMapping("/esignup")

@@ -7,6 +7,17 @@
 <title>Login</title>
 </head>
 <body>
-	<h2>Welcome to the Login Page</h2>
+	<h2>Login Page</h2> <br><br><br>
+	<form action="elogin" method="post">
+		Email: <input type="text" name="email"> 
+		<span style="color:red">${loginerror}</span>
+		
+		<br><br>
+		
+		Password: <input type="password" name="password"> <br><br>
+		<span style="color:red">${loginerror}</span>
+		
+		<input type="submit" value="Login"> 
+	</form>
 </body>
 </html>
