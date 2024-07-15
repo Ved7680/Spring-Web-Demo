@@ -5,19 +5,44 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 </head>
 <body>
-	<h2>Login Page</h2> <br><br><br>
-	<form action="elogin" method="post">
-		Email: <input type="text" name="email"> 
-		<span style="color:red">${loginerror}</span>
-		
-		<br><br>
-		
-		Password: <input type="password" name="password"> <br><br>
-		<span style="color:red">${loginerror}</span>
-		
-		<input type="submit" value="Login"> 
-	</form>
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+
+				<h2>Ecom Login</h2>
+
+
+				<form action="elogin" method="post">
+					<div class="form-group">
+						Email: <input type="text" name="email" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						Password: <input type="password" name="password"
+							class="form-control" />
+					</div>
+
+
+					<input type="submit" value="Login" class="btn btn-success" />
+
+				</form>
+				<br> 
+				
+				<span class="text-danger">${error}</span>
+
+			</div>
+
+
+		</div>
+
+	</div>
 </body>
 </html>

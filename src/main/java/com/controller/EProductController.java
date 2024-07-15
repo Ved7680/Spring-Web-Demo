@@ -38,19 +38,21 @@ public class EProductController {
 		if ( Validators.isBlank(productBean.getProductName()) ) {
 			model.addAttribute("productNameError", "Please Enter Product Name");
 			isError = true;
-		}else if ( Validators.isAlpha(productBean.getProductName()) == false ) {
-			model.addAttribute("productNameError", "Please Enter valid Product Name");
-			isError = true;
 		}
+//			else if ( Validators.isAlpha(productBean.getProductName()) == false ) {
+//			model.addAttribute("productNameError", "Please Enter valid Product Name");
+//			isError = true;
+//		}
 		
 		// For product category
 		if ( Validators.isBlank(productBean.getCategory()) ) {
 			model.addAttribute("categoryError", "Please Enter Product Category");
 			isError = true;
-		}else if ( Validators.isAlpha(productBean.getCategory()) == false ) {
-			model.addAttribute("categoryError", "Please Enter Valid Product Category");
-			isError = true;
 		}
+//		else if ( Validators.isAlpha(productBean.getCategory()) == false ) {
+//			model.addAttribute("categoryError", "Please Enter Valid Product Category");
+//			isError = true;
+//		}
 		
 		// For product qty
 		if ( Validators.isBlank( Integer.toString(productBean.getQty()) ) ) {
@@ -76,6 +78,7 @@ public class EProductController {
 		if (isError == false) {
 //			System.out.println(masterImage.getOriginalFilename());
 			fileUploadService.uploadProductImage(masterImage);
+			productBean.setProductImagePath("images//products//"+masterImage.getOriginalFilename());
 			productDao.addProduct(productBean);
 			return "redirect:/products"; // redirect: --> using it we will be able to redirect to a url. Otherwise, it will only accept jsp file.
 		}

@@ -101,11 +101,12 @@ public class EcomSessionController {
 			userDao.insertUser(userbean);
 			return "Ecomlogin";
 		}
-		
-		
-		
-		
-		
-		
+	}
+	
+	@GetMapping("/elogout")
+	public String elogout(HttpSession session) {
+		// Destroy Session
+		session.invalidate();
+		return "redirect:/elogin";
 	}
 }

@@ -13,7 +13,7 @@
 
 <img alt="" src="${profilePicPath}" height="300px" width="300px"> <br><br>
 
-<a href="products"> Products Page</a>
+<a href="userproducts"> Products Page</a>
 
 </body>
 </html>

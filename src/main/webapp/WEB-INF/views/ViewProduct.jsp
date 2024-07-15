@@ -13,5 +13,6 @@
 	Price :${product.price }<br>
 	Category:${product.category }<br>
 	Qty : ${product.qty }<br>
+	<img alt="" src="${product.productImagePath}" height="300px" width="300px"> <br><br>
 </body>
 </html>
