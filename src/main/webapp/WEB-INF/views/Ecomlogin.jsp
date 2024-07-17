@@ -22,12 +22,13 @@
 
 				<form action="elogin" method="post">
 					<div class="form-group">
-						Email: <input type="text" name="email" class="form-control" />
+						Email: <input type="text" name="email" class="form-control" /> 
+						<span style="color:red">${loginError}</span>
 					</div>
 
 					<div class="form-group">
-						Password: <input type="password" name="password"
-							class="form-control" />
+						Password: <input type="password" name="password" class="form-control" />
+						<span style="color:red">${loginError}</span>
 					</div>
 
 
