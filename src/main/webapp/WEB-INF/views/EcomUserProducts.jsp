@@ -193,7 +193,7 @@
 	
 	<div class="row">
 		<div class="col-md">
-			<a href="elogout">Logout</a>
+			<a href="elogout">  <button type="button" class="btn btn-success">Logout</button>  </a>
 		</div>
 	</div>
 	

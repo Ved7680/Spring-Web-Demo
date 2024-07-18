@@ -5,15 +5,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title></title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 </head>
 <body>
-<h2>Home Page</h2> <br><br>
+<h1>Home Page</h1> <br><br> 
 
-<h3>Welcome, ${user.firstName}</h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<h4>Welcome, ${user.firstName}</h4>
 
-<img alt="" src="${profilePicPath}" height="300px" width="300px"> <br><br>
+&nbsp;&nbsp; <img alt="" src="${profilePicPath}" height="100px" width="100px"> <br><br>
 
-<a href="userproducts"> Products Page</a>
+&nbsp;&nbsp; <a href="userproducts">  <button type="button" class="btn btn-success">Products</button>  </a>
 
 </body>
 </html>
